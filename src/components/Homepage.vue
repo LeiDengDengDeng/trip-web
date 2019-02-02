@@ -85,11 +85,9 @@ export default {
       let chart = this.$echarts.init(document.getElementById('examinedChart'))
       chart.setOption(option)
       // 待审核百分比
-      e = 60
       chart = this.$echarts.init(document.getElementById('unexaminedChart'))
       chart.setOption(option)
       // 待审核百分比
-      e = 20
       chart = this.$echarts.init(document.getElementById('othersChart'))
       chart.setOption(option)
       // 折线图
