@@ -230,8 +230,11 @@ export default {
       })
     },
     addClick () {
+      this.isAddModal = true
       this.formModalVisible = true
       this.$refs['form'].resetFields()
+      const fileList = this.$refs.upload.fileList
+      this.$refs.upload.fileList.splice(0, fileList.length)
     },
     handleView (url) {
       this.imgUrl = url

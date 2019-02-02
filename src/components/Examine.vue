@@ -2,7 +2,7 @@
   <div>
     <Table border :columns="columns" :data="list"></Table>
     <Modal
-      v-model="modal"
+      v-model="formModalVisible"
       title="用户认证照片">
       <div style="display: flex;justify-content: center;">
         <img :src="pictureUrl"/>
@@ -28,7 +28,6 @@ export default {
       formModalVisible: false,
       current: '',
       pictureUrl: '',
-      modal: false,
       columns: [
         {
           title: 'ID',
@@ -69,7 +68,7 @@ export default {
             return h('a', {
               on: {
                 click: () => {
-                  this.modal = true
+                  this.formModalVisible = true
                   this.pictureUrl = params.row.pictureUrl
                   this.current = params.row._index
                 }
