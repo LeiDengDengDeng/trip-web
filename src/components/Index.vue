@@ -6,7 +6,7 @@
           <div class="row">
             <div class="layout-logo">大学生出游管理</div>
             <div class="layout-nav">
-              <Dropdown>
+              <Dropdown @on-click="dropDownClick">
                 <Button type="primary">
                   <Icon type="ios-contact" size="18"></Icon>
                   admin
@@ -14,7 +14,7 @@
                 </Button>
                 <DropdownMenu slot="list">
                   <DropdownItem>个人信息</DropdownItem>
-                  <DropdownItem>登出</DropdownItem>
+                  <DropdownItem name="logout">登出</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </div>
@@ -89,6 +89,11 @@ export default {
           this.activeName = '3-1'
           this.breadcrumbItems = ['主页', '景点详情']
           break
+      }
+    },
+    dropDownClick (name) {
+      if (name === 'logout') {
+        this.$router.push('/')
       }
     }
   }

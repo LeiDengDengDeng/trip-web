@@ -2,14 +2,15 @@
   <div class="wrap">
     <div class="login-form">
       <img src="../assets/timg.jpeg" style="width:100%;"/>
-      <Divider />
+      <Divider/>
       <div style="margin-top: 20px;">
         <div><b style="color: red;">* </b>用户名：</div>
-        <Input prefix="ios-contact" placeholder="请输入用户名" style="width: 100%;margin-top: 5px;"/>
+        <Input prefix="ios-contact" v-model="username" placeholder="请输入用户名" style="width: 100%;margin-top: 5px;"/>
       </div>
       <div style="margin-top: 20px;">
         <div><b style="color: red;">* </b>密码：</div>
-        <Input type="password" prefix="ios-lock-outline" placeholder="请输入密码" style="width: 100%;margin-top: 5px;"/>
+        <Input type="password" prefix="ios-lock-outline" v-model="password" placeholder="请输入密码"
+               style="width: 100%;margin-top: 5px;"/>
       </div>
       <div style="margin-top: 30px;">
         <Button type="success" style="width: 100%;" @click="loginBtnClick">登录</Button>
@@ -23,7 +24,17 @@ export default {
   name: 'login',
   methods: {
     loginBtnClick () {
-      this.$router.push({path: '/index'})
+      if (this.username === 'root' && this.password === '123456') {
+        this.$router.push({path: '/index'})
+      } else {
+        this.$Message.error('用户名或密码错误')
+      }
+    }
+  },
+  data () {
+    return {
+      username: '',
+      password: ''
     }
   }
 }
